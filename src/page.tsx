@@ -5,13 +5,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Komponentlarni import qilish (yo'llarni o'zingizning loyiha tuzilmangizga moslang)
-import Navbar from "../src/components/Navbar";
-import Footer from "../src/components/Footer";
-import Scene from "../src/components/Scene";
-import Hero from "../src/components/sections/Hero";
-import Stores from "../src/components/sections/Stores";
-import Gift from "../src/components/sections/Gift";
-import CTA from "../src/components/sections/CTA";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Scene from "./components/Scene";
+import Hero from "./components/sections/Hero";
+import Stores from "./components/sections/Stores";
+import Gift from "./components/sections/Gift";
+import CTA from "./components/sections/CTA";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
