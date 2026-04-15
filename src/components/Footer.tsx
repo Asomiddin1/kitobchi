@@ -24,6 +24,8 @@ export default function Footer() {
               <li><a href="#" className="hover:text-[#8f7cff] transition-colors duration-300">Barcha do'konlar</a></li>
               <li><a href="#" className="hover:text-[#8f7cff] transition-colors duration-300">Maxsus sovg'alar</a></li>
               <li><a href="#" className="hover:text-[#8f7cff] transition-colors duration-300">Mobil ilova</a></li>
+              {/* Vakansiya shu yerga qo'shildi */}
+              <li><a href="/vakansiya" className="hover:text-[#8f7cff] transition-colors duration-300">Vakansiya</a></li>
             </ul>
           </div>
 

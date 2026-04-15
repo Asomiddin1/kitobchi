@@ -24,3 +24,15 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+@keyframes shine {
+  from { background-position: 0%; }
+  to { background-position: 200%; }
+}
+
+.animate-shine {
+  background: linear-gradient(90deg, #fff 0%, #555 50%, #fff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}

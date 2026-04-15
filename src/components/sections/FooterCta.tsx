@@ -22,7 +22,7 @@ const FooterCTA = () => {
           <AppStoreButton />
           <PlayStoreButton />
         </div>
-      </div>
+      </div> 
 
       {/* Asosiy Footer qismi */}
       <div className="border-t border-[#333] pt-10 px-6 text-left flex flex-col">
@@ -63,6 +63,10 @@ const FooterCTA = () => {
               </li>
               <li className="mb-[10px]">
                 <a href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Foydalanish shartlari</a>
+              </li>
+              {/* Vakansiya shu yerga qo'shildi */}
+              <li className="mb-[10px]">
+                <a href="/vakansiya" className="text-[#aaa] transition-colors duration-200 hover:text-white">Vakansiya</a>
               </li>
               <li className="mb-[10px]">
                 <a href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Aloqa: +998 90 123 45 67</a>
