@@ -47,7 +47,7 @@ function IPhoneGLB() {
       scrollTrigger: {
         trigger: "#main-wrapper",
         start: "top top",
-        end: "bottom bottom",
+        end: "center center",
         scrub: 1.2,
       },
     });

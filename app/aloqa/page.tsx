@@ -1,13 +1,9 @@
 "use client";
 
 import React from "react";
-import Navbar from "../../src/components/Navbar";
 export default function AloqaPage() {
   return (
     <div className="relative min-h-screen w-full bg-[#f9f9fb] font-sans text-[#2d2d2d] overflow-hidden selection:bg-[#8f7cff] selection:text-white">
-      
-      {/* NAVBAR SHU YERDA */}
-      <Navbar />
 
       {/* 1. PREMIUM BACKGROUND ELEMENTS */}
       <div className="absolute inset-0 z-0">

@@ -67,7 +67,6 @@ export default function KitobchiApp() {
       }}
     >
       <Scene />
-      <Navbar />
 
       <div className="relative z-10">
         <Hero />
@@ -75,7 +74,6 @@ export default function KitobchiApp() {
         <Gift />
         {/* <CTA /> */}
         <Features />
-        <FooterCTA />
       </div>
     </div>
   );

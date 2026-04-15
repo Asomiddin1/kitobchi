@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import Navbar from "../../src/components/Navbar";
 import Footer from "../../src/components/Footer";
 
 const mockStores = [
@@ -22,7 +21,6 @@ export default function DokonlarPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#cfd9ff] via-[#d9c2f0] to-[#eac7d4] flex flex-col">
-      <Navbar />
       <main className="flex-grow pt-32 pb-20 px-6 md:px-16 max-w-7xl mx-auto w-full z-10">
         <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
           <h1 className="text-6xl font-black uppercase text-[#2d2d2d]">
