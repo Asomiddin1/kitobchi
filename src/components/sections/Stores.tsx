@@ -10,7 +10,7 @@ export default function Stores() {
         </h2>
 
         <div className="backdrop-blur-lg bg-white/10 border border-white/20 p-8 rounded-3xl shadow-xl ml-auto hover:bg-white/20 transition-all duration-300">
-          <p className="text-xl text-[#4a4a4a] font-semibold">
+          <p className="text-xl text-[black] font-semibold">
             Hamma kitob do'konlari bir joyda jamlangan yagona marketplace. Sevimli asarlaringizni qidirish endi juda oson.
           </p>
         </div>
