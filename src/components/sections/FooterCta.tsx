@@ -1,73 +1,91 @@
 "use client"
 
+import Image from "next/image"
 import AppStoreButton from "../AppStoreBtn"
 import PlayStoreButton from "../PlayStoreButton"
+import LogoWhite from './logo-white.png'
 
 const FooterCTA = () => {
   return (
-    <>
-      <style>{`
-        .footer-cta-section { background: #111; color: #fff; padding-top: 100px; text-align: center; }
-        .cta-container { max-width: 800px; margin: 0 auto; padding: 0 24px 80px; }
-        .cta-headline { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 900; line-height: 1.1; margin-bottom: 24px; }
-        .cta-sub { color: #aaa; font-size: 1.1rem; margin-bottom: 40px; }
-        .store-btns { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-        .store-btn { display: flex; align-items: center; gap: 10px; background: #fff; color: #111; border: none; padding: 14px 28px; border-radius: 999px; cursor: pointer; font-family: inherit; font-weight: bold; transition: transform 0.2s; }
-        .store-btn:hover { transform: scale(1.05); }
-        .store-btn .small { font-size: 0.65rem; display: block; opacity: 0.8;}
-        .store-btn .big { font-size: 1rem; display: block; }
+    <footer className="bg-[#111] text-white pt-[100px] text-center relative overflow-hidden flex flex-col">
+      
+      {/* Yuqori CTA qismi */}
+      <div className="max-w-[800px] mx-auto px-6 pb-[80px]">
+        <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-black leading-[1.1] mb-6">
+          O'z kutubxonangizni<br />hoziroq yarating!
+        </h2>
+        <p className="text-[#aaa] text-[1.1rem] mb-10">
+          Kitobchi ilovasini bepul yuklab oling va kitoblar olamiga sho'ng'ing!
+        </p>
         
-        .main-footer { border-top: 1px solid #333; padding: 40px 24px; text-align: left; }
-        .footer-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 40px; }
-        .footer-logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; }
-        .footer-links h4 { color: #fff; margin-bottom: 15px; }
-        .footer-links ul { list-style: none; padding: 0; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: #aaa; text-decoration: none; transition: color 0.2s; }
-        .footer-links a:hover { color: #fff; }
-        .copyright { text-align: center; color: #666; margin-top: 40px; font-size: 0.9rem; }
-      `}</style>
+        <div className="flex gap-4 flex-wrap justify-center">
+          <AppStoreButton />
+          <PlayStoreButton />
+        </div>
+      </div>
 
-      <footer className="footer-cta-section">
-        <div className="cta-container">
-          <h2 className="cta-headline">O'z kutubxonangizni<br/>hoziroq yarating!</h2>
-          <p className="cta-sub">Kitobchi ilovasini bepul yuklab oling va kitoblar olamiga sho'ng'ing !.</p>
+      {/* Asosiy Footer qismi */}
+      <div className="border-t border-[#333] pt-10 px-6 text-left flex flex-col">
+        <div className="max-w-[1200px] w-full mx-auto flex justify-between flex-wrap gap-10 relative z-10">
           
-          <div className="store-btns">
-                <AppStoreButton />
-                <PlayStoreButton />
+          {/* Logotip va matn */}
+          <div>
+            <div className="mb-[15px] flex items-center">
+              <Image src={LogoWhite} alt="Kitobchi Logo" width={45} height={45} />
+            </div>
+            <p className="text-[#aaa] max-w-[300px]">
+              O'zbekistondagi barcha kitob do'konlari bitta ilovada.
+            </p>
           </div>
+          
+          {/* Ijtimoiy tarmoqlar */}
+          <div>
+            <h4 className="text-white mb-[15px] font-bold">Ijtimoiy tarmoqlar</h4>
+            <ul>
+              <li className="mb-[10px]">
+                <a href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Telegram</a>
+              </li>
+              <li className="mb-[10px]">
+                <a href="https://www.instagram.com/kitobchi_market/" target="_blank" rel="noopener noreferrer" className="text-[#aaa] transition-colors duration-200 hover:text-white">Instagram</a>
+              </li>
+              <li className="mb-[10px]">
+                <a href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Facebook</a>
+              </li>
+            </ul>
+          </div>
+          
+          {/* Ma'lumotlar */}
+          <div>
+            <h4 className="text-white mb-[15px] font-bold">Ma'lumotlar</h4>
+            <ul>
+              <li className="mb-[10px]">
+                <a href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Maxfiylik siyosati</a>
+              </li>
+              <li className="mb-[10px]">
+                <a href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Foydalanish shartlari</a>
+              </li>
+              <li className="mb-[10px]">
+                <a href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Aloqa: +998 90 123 45 67</a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        
+        {/* Copyright qismi */}
+        <div className="text-center text-[#666] mt-[60px] text-[0.9rem] relative z-10">
+          © {new Date().getFullYear()} Kitobchi. Barcha huquqlar himoyalangan.
         </div>
 
-        <div className="main-footer">
-          <div className="footer-content">
-            <div>
-              <div className="footer-logo">Kitobchi.</div>
-              <p style={{color: "#aaa", maxWidth: "300px"}}>O'zbekistondagi barcha kitob do'konlari bitta ilovada.</p>
-            </div>
-            <div className="footer-links">
-              <h4>Ijtimoiy tarmoqlar</h4>
-              <ul>
-                <li><a href="#">Telegram</a></li>
-                <li><a href="https://www.instagram.com/kitobchi_market/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                <li><a href="#">Facebook</a></li>
-              </ul>
-            </div>
-            <div className="footer-links">
-              <h4>Ma'lumotlar</h4>
-              <ul>
-                <li><a href="#">Maxfiylik siyosati</a></li>
-                <li><a href="#">Foydalanish shartlari</a></li>
-                <li><a href="#">Aloqa: +998 90 123 45 67</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="copyright">
-            © {new Date().getFullYear()} Kitobchi. Barcha huquqlar himoyalangan.
-          </div>
+        {/* --- KATTA MATN (Tailwind formatida) --- */}
+        <div className="w-full flex justify-center mb-[-60px] pointer-events-none">
+          <h1 className="text-[24vw] font-extrabold text-white leading-[0.75] m-0 tracking-[-0.04em] whitespace-nowrap translate-y-[12%]">
+            Kitobchi
+          </h1>
         </div>
-      </footer>
-    </>
+        
+      </div>
+    </footer>
   )
 }
 

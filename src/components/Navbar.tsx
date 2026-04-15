@@ -4,6 +4,9 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import PlayStoreButton from "./PlayStoreButton";
 import AppStoreButton from "./AppStoreBtn";
+import Image from "next/image";
+import LogoBlue from "./logo-blue.png";
+import LogoBlack from  './logo-black.png'
 
 const menuItems = [
   { name: "Asosiy", path: "/" },
@@ -38,7 +41,7 @@ export default function Navbar() {
           href="/"
           className="text-3xl font-black text-[#2d2d2d] tracking-tighter hover:scale-105 transition-transform duration-300"
         >
-          Kitobchi<span className="text-[#8f7cff]"></span>
+          <Image src={LogoBlack} alt="Kitobchi Logo" width={150} height={150} />
         </Link>
 
         {/* 2. MARKAZIY LINKLAR (Qaytarildi) */}

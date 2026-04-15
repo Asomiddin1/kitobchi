@@ -17,16 +17,11 @@ export default function Hero() {
           </span>
         </h1>
 
-        {/* Glassmorphism Card va yangi matn */}
-        <div className="backdrop-blur-xl bg-white/20 border border-white/30 p-6 rounded-3xl shadow-[0_8px_32px_rgba(31,38,135,0.1)] max-w-lg transform hover:-translate-y-2 transition-transform duration-500 cursor-default">
-          <p className="text-lg md:text-xl text-[black] font-medium leading-relaxed">
-            Do'konlar assortimentini online ko'rib chiqing, arzon sotib oling, kitoblar bo'yicha bilim sinovlaridan o'ting, keshbeklar oling va boshqa kitobxonlar bilan fikr almashing!
-          </p>
-          <div className="flex gap-4 pt-3 mt-2">
+         <div className="flex gap-4 pt-3 mt-2">
             <AppStoreButton dark />
             <PlayStoreButton dark />
           </div>
-        </div>
+
         
       </div>
     </section>
