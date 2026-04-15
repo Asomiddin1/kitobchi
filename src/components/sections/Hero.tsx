@@ -12,7 +12,7 @@ export default function Hero() {
             O'zbekistondagi
           </span>
           <span className="text-[#2d2d2d]">Kitob do'konlari</span> <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8f7cff] via-[#a890fe] to-[#eac7d4]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8f7cff] via-[#735cc9] to-[#a67486]">
             Bir ilovada.
           </span>
         </h1>
