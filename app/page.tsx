@@ -73,7 +73,7 @@ export default function KitobchiApp() {
         <Hero />
         <Stores />
         <Gift />
-        <CTA />
+        {/* <CTA /> */}
         <Features />
         <FooterCTA />
       </div>

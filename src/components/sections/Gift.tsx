@@ -1,11 +1,11 @@
-import React from "react";
+
 
 export default function Gift() {
   return (
     <section className="min-h-screen flex items-center px-6 md:px-20">
       <div className="reveal-item max-w-xl z-10">
         <h2 className="text-6xl md:text-8xl font-black tracking-tighter uppercase mb-8 drop-shadow-xl">
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8f7cff] to-[#eac7d4]">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#8f7cff] via-[#735cc9] to-[#a67486]">
             Sovg'asi
           </span> <br /> 
           <span className="text-[#2d2d2d]">bilan.</span>

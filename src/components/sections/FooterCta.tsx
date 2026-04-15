@@ -31,7 +31,7 @@ const FooterCTA = () => {
       <footer className="footer-cta-section">
         <div className="cta-container">
           <h2 className="cta-headline">O'z kutubxonangizni<br/>hoziroq yarating!</h2>
-          <p className="cta-sub">Kitobchi ilovasini bepul yuklab oling va mutolaadan zavq oling.</p>
+          <p className="cta-sub">Kitobchi ilovasini bepul yuklab oling va kitoblar olamiga sho'ng'ing !.</p>
           
           <div className="store-btns">
                 <AppStoreButton />
@@ -49,7 +49,7 @@ const FooterCTA = () => {
               <h4>Ijtimoiy tarmoqlar</h4>
               <ul>
                 <li><a href="#">Telegram</a></li>
-                <li><a href="#">Instagram</a></li>
+                <li><a href="https://www.instagram.com/kitobchi_market/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                 <li><a href="#">Facebook</a></li>
               </ul>
             </div>

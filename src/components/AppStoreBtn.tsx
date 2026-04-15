@@ -4,7 +4,7 @@ import clsx from 'clsx'
 
 const AppStoreButton = ({ dark }: { dark?: boolean }) => {
     return (
-           <a href={'https://play.google.com/store/apps/details?id=com.kitobchi.kitobchi'} target="_blank" rel="noopener noreferrer">
+           <a href={'https://apps.apple.com/uz/app/kitobchi/id6753818078'} target="_blank" rel="noopener noreferrer">
                <button
                    type="button"
                     className={'flex items-center cursor-pointer justify-between px-5 py-3 rounded-2xl transition-all duration-300 group hover:scale-[1.02] ' + clsx(

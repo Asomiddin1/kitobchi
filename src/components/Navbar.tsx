@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import App from "next/app";
 import PlayStoreButton from "./PlayStoreButton";
 import AppStoreButton from "./AppStoreBtn";
 
@@ -12,12 +11,6 @@ const menuItems = [
   { name: "Sovg'alar", path: "/#sovg'alar" },
   { name: "Aloqa", path: "/aloqa" },
 ];
-
-const LINKS = {
-  android:
-    "https://play.google.com/store/apps/details?id=com.kitobchi.kitobchi",
-  ios: "https://play.google.com/store/apps/details?id=com.kitobchi.kitobchi",
-};
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
