@@ -3,16 +3,11 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Space_Grotesk } from "next/font/google"; // 1. Shriftni import qilish
-
-// Komponentlarni import qilish (yo'llarni o'zingizning loyiha tuzilmangizga moslang)
-import Navbar from "../src/components/Navbar";
+import { Space_Grotesk } from "next/font/google"; // 1. Google Fonts'dan shriftni import qilish
 import Scene from "../src/components/Scene";
 import Hero from "../src/components/sections/Hero";
 import Stores from "../src/components/sections/Stores";
 import Gift from "../src/components/sections/Gift";
-// import CTA from "../src/components/sections/CTA";
-import FooterCTA from "@/src/components/sections/FooterCta";
 import Features from "@/src/components/sections/Features";
 import CTA from "@/src/components/sections/CTA";
 
@@ -72,8 +67,9 @@ export default function KitobchiApp() {
         <Hero />
         <Stores />
         <Gift />
-        {/* <CTA /> */}
+        <Gift />
         <Features />
+        <CTA />
       </div>
     </div>
   );

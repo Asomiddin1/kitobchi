@@ -1,167 +1,127 @@
 "use client";
 
-import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, Environment, ContactShadows, Html, useProgress, useAnimations, Stars, Sparkles } from '@react-three/drei';
-import { useEffect, useRef, Suspense, useState, use } from 'react'; 
-import * as THREE from 'three';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import Lenis from 'lenis';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
+const stores = [
+  {
+    id: 1,
+    name: "Markaziy Kitob Olami",
+    address: "Toshkent, Amir Temur ko'chasi, 12-uy",
+    workTime: "09:00 - 21:00",
+    image: "https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&q=80&w=1200",
+    tags: ["Katta tanlov", "Coffee Shop", "WiFi"]
+  },
+  {
+    id: 2,
+    name: "Chilonzor Filiali",
+    address: "Qatortol ko'chasi, 25-uy",
+    workTime: "10:00 - 22:00",
+    image: "https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&q=80&w=1200",
+    tags: ["Bolalar bo'limi", "O'quv zali"]
+  },
+  {
+    id: 3,
+    name: "Yunusobod Branch",
+    address: "Mega Planet yaqinida",
+    workTime: "09:00 - 20:00",
+    image: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=1200",
+    tags: ["Eski kitoblar", "Tinch hudud"]
+  }
+];
 
-function CanvasLoader() {
-  const { progress } = useProgress();
-  const [displayProgress, setDisplayProgress] = useState(0);
-  useEffect(() => { setDisplayProgress(Math.round(progress)); }, [progress]);
+export default function DokonlarPage() {
   return (
-    <Html center zIndexRange={[100, 0]}>
-      <div className="text-white text-2xl font-black bg-white/5 backdrop-blur-md p-6 rounded-full border border-white/10 min-w-[80px] text-center">{displayProgress}%</div>
-    </Html>
-  );
-}
+    <main className="min-h-screen bg-[#F7F7F5] text-neutral-900 overflow-hidden">
+      
+      {/* 1. Hero Section */}
+      <section className="relative h-[40vh] flex flex-col items-center justify-center pt-20">
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-[12vw] font-black uppercase leading-none tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-neutral-800 to-neutral-400"
+        >
+          DO'KONLAR
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 1 }}
+          className="text-sm md:text-lg font-bold tracking-[0.3em] uppercase text-neutral-500 mt-2"
+        >
+          Sizga eng yaqin manzillar
+        </motion.p>
+      </section>
 
-function BookModel() {
-  const bookRef = useRef<any>(null);
-  const { scene, animations } = useGLTF('/models/book.glb');
-  const { actions } = useAnimations(animations, bookRef);
-  const mouse = useRef({ x: 0, y: 0 });
+      {/* 2. Grid - 2 qator (2 ustun) ko'rinishi */}
+      <section className="max-w-[1400px] mx-auto px-6 pb-40">
+        {/* grid-cols-1 (mobil) va md:grid-cols-2 (kompyuter) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {stores.map((store, index) => (
+            <motion.div
+              key={store.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              // Balandlikni 500px ga mosladik, responsive qilish uchun
+              className="group relative w-full h-[500px] md:h-[550px] rounded-[40px] overflow-hidden shadow-2xl bg-white border border-black/5"
+            >
+              {/* Background Image */}
+              <motion.div 
+                className="absolute inset-0 z-0"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 1.2, ease: "easeOut" }}
+              >
+                <img 
+                  src={store.image} 
+                  alt={store.name} 
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
 
-  // Responsiv sozlamalar
-  const [isMobile, setIsMobile] = useState(false);
+              {/* Glassmorphism Content Box */}
+              <div className="absolute bottom-4 left-4 right-4 z-10 p-6 md:p-8 rounded-[30px] bg-white/80 backdrop-blur-xl border border-white flex flex-col justify-between shadow-lg">
+                
+                <div>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {store.tags.map(tag => (
+                      <span key={tag} className="px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 text-[9px] font-bold uppercase tracking-wider">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
 
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth < 768);
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+                  <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight text-neutral-900 mb-1">
+                    {store.name}
+                  </h2>
+                  <p className="text-sm md:text-base text-neutral-600 font-medium line-clamp-1">
+                    {store.address}
+                  </p>
+                </div>
 
-  useFrame((state) => {
-    if (!bookRef.current) return;
-    const t = state.clock.getElapsedTime();
-    bookRef.current.rotation.x = THREE.MathUtils.lerp(bookRef.current.rotation.x, mouse.current.y * 0.05, 0.1);
-    bookRef.current.position.y += Math.sin(t) * 0.002;
-  });
-
-  useGSAP(() => {
-    if (!bookRef.current) return;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouse.current.x = (e.clientX / window.innerWidth) - 0.5;
-      mouse.current.y = (e.clientY / window.innerHeight) - 0.5;
-    };
-    window.addEventListener('mousemove', handleMouseMove);
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".scroll-wrapper",
-        start: "top top",
-        end: "bottom bottom",
-        scrub: 1.2, 
-      }
-    });
-
-    const FIXED_Z = 5;
-    const FIXED_Y = -0.5;
-    // Telefonda kitobni o'ngga/chapga surmaymiz (x: 0), kompyuterda SIDE_X: 1.5
-    const SIDE_X = isMobile ? 0 : 1.5; 
-
-    tl
-      .to(bookRef.current.position, { x: SIDE_X, y: FIXED_Y, z: FIXED_Z, duration: 2 })
-      .to(bookRef.current.rotation, { y: Math.PI / 2, duration: 2 }, "<")
-
-      .to(bookRef.current.position, { x: -SIDE_X, y: FIXED_Y, z: FIXED_Z, duration: 2 })
-      .to(bookRef.current.rotation, { y: Math.PI, duration: 2 }, "<")
-
-      .to(bookRef.current.position, { x: 0, y: FIXED_Y, z: FIXED_Z, duration: 2 })
-      .to(bookRef.current.rotation, { y: (Math.PI * 3) / 2, duration: 2 }, "<")
-
-      .to(bookRef.current.position, { x: 0, y: isMobile ? 1.5 : 0.5, z: 2, duration: 2 })
-      .to(bookRef.current.rotation, { y: Math.PI * 2, duration: 2 }, "<");
-
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, [isMobile]); // isMobile o'zgarganda animatsiyani qayta sozlaymiz
-
-  return (
-    <primitive 
-      object={scene} 
-      ref={bookRef} 
-      scale={isMobile ? [8, 8, 8] : [14, 14, 14]} // Telefonda kitob kichrayadi
-      position={[isMobile ? 0 : -1.5, -0.5, 5]} 
-      rotation={[0, 0, 0]} 
-    />
-  );
-}
-
-export default function Home(props: { params?: Promise<any>; searchParams?: Promise<any> }) {
-  const _params = props.params ? use(props.params) : null;
-
-  useEffect(() => {
-    const lenis = new Lenis();
-    function raf(time: number) { lenis.raf(time); requestAnimationFrame(raf); }
-    requestAnimationFrame(raf);
-    lenis.on('scroll', ScrollTrigger.update);
-    return () => lenis.destroy();
-  }, []);
-
-  return (
-    <div className="scroll-wrapper relative bg-[#bebdf98e] text-white overflow-x-hidden selection:bg-yellow-500 font-sans">
-      <div className="fixed top-0 left-0 w-full h-screen z-0 pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
-          <Stars radius={100} depth={50} count={1200} factor={4} saturation={0} fade speed={1} />
-          {/* <Sparkles count={40} scale={10} size={2} color="#ffd700" /> */}
-          <ambientLight intensity={1.5} />
-          <pointLight position={[10, 10, 10]} intensity={2} />
-          <Suspense fallback={<CanvasLoader />}>
-            <BookModel />
-          </Suspense>
-          <Suspense fallback={null}><Environment preset="city" /></Suspense>
-          <ContactShadows position={[0, -3.5, 0]} opacity={0.4} scale={20} blur={2.5} />
-        </Canvas>
-      </div>
-
-      {/* Kontent qismi ham responsiv qilindi: md:px-24 (PC), px-6 (Mobil) */}
-      <section className="h-screen flex items-center justify-center md:justify-end px-6 md:px-24 relative z-10 text-center md:text-right">
-        <div className="fade-in">
-          <h1 className="text-6xl md:text-9xl font-black italic tracking-tighter uppercase leading-tight">Kitobchi</h1>
-          <p className="text-lg md:text-2xl text-yellow-500 font-bold tracking-widest md:tracking-[0.5em] mt-4 uppercase">Do'konlar Tarmog'i</p>
+                <div className="flex justify-between items-center mt-6">
+                  <div>
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-neutral-500">Ish vaqti</p>
+                    <p className="text-lg font-black text-neutral-900">{store.workTime}</p>
+                  </div>
+                  
+                  <motion.button
+                    whileHover={{ scale: 1.05, backgroundColor: "#000", color: "#fff" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="px-6 py-3 bg-neutral-900 text-white rounded-full text-[10px] font-black uppercase tracking-widest transition-colors shadow-md"
+                  >
+                    Xaritada
+                  </motion.button>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
-      <section className="h-screen flex items-center justify-center md:justify-start px-6 md:px-24 relative z-10">
-        <div className="fade-in max-w-xl p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl text-center md:text-left">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Markaziy Filial</h2>
-          <p className="text-base md:text-lg text-gray-300">Eng sara adabiyotlar to'plami bizning shinam do'konimizda.</p>
-        </div>
-      </section>
-
-      <section className="h-screen flex items-center justify-center md:justify-end px-6 md:px-24 relative z-10">
-        <div className="fade-in max-w-xl p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl text-center md:text-right">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Bolalar Olami</h2>
-          <p className="text-base md:text-lg">Kichik kitobxonlar uchun eng qiziqarli kitoblar dunyosi.</p>
-        </div>
-      </section>
-
-      <section className="h-screen flex items-center justify-center md:justify-start px-6 md:px-24 relative z-10">
-        <div className="fade-in max-w-xl p-8 md:p-10 rounded-[2rem] md:rounded-[3rem] bg-white/5 backdrop-blur-3xl border border-white/10 shadow-2xl text-center md:text-left">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">O'quv Qurollari</h2>
-          <p className="text-base md:text-lg bg-white-300">Sifatli kanselyariya va o'quv jihozlari barcha uchun.</p>
-        </div>
-      </section>
-
-      <section className="h-screen flex flex-col items-center justify-center px-6 relative z-10">
-        <div className="fade-in text-center bg-white/5 backdrop-blur-xl p-8 md:p-12 rounded-[2rem] md:rounded-[3rem] border border-white/10 shadow-2xl w-full max-w-4xl">
-          <h2 className="text-4xl md:text-6xl font-black mb-8 italic uppercase tracking-tighter text-white">Biz bilan bog'laning</h2>
-          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
-            <span className="w-full md:w-auto px-10 py-5 bg-yellow-500 text-black rounded-full font-bold text-lg md:text-xl shadow-lg">📞 +998 71 200 00 00</span>
-            <a href="https://www.instagram.com/kitobchi_market" target="_blank" className="w-full md:w-auto px-10 py-5 bg-white text-black rounded-full font-bold text-lg md:text-xl hover:bg-gray-100 transition-all">Instagram</a>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   );
 }

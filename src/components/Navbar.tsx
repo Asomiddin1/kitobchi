@@ -5,8 +5,7 @@ import Link from "next/link";
 import PlayStoreButton from "./PlayStoreButton";
 import AppStoreButton from "./AppStoreBtn";
 import Image from "next/image";
-import LogoBlue from "./logo-blue.png";
-import LogoBlack from  './logo-black.png'
+import LogoBlack from  '../images/logo-black.png'
 
 const menuItems = [
   { name: "Asosiy", path: "/" },
