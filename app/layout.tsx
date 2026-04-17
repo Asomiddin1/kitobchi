@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="uz"
       className={`${geistSans.variable} ${spaceGrotesk.variable} ${geistMono.variable} h-full antialiased`}
     >
       {/* O'ZGARTIRILDI: asosiy shrift Space Grotesk bo'lishi uchun body'ga className berildi */}

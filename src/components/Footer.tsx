@@ -43,10 +43,10 @@ const Footer = () => {
             <h4 className="text-white mb-[15px] font-bold">Ma'lumotlar</h4>
             <ul className="flex flex-col gap-[10px]">
               <li>
-                <Link href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Maxfiylik siyosati</Link>
+                <Link href="/legal/privacy" className="text-[#aaa] transition-colors duration-200 hover:text-white">Maxfiylik siyosati</Link>
               </li>
               <li>
-                <Link href="#" className="text-[#aaa] transition-colors duration-200 hover:text-white">Foydalanish shartlari</Link>
+                <Link href="/legal/terms" className="text-[#aaa] transition-colors duration-200 hover:text-white">Foydalanish shartlari</Link>
               </li>
               <li>
                 <Link href="/vakansiya" className="text-[#aaa] transition-colors duration-200 hover:text-white">Vakansiya</Link>
