@@ -65,8 +65,8 @@ const Footer = () => {
         </div>
 
         {/* KATTA FON MATNI */}
-        <div className="w-full flex justify-center mb-[-60px] pointer-events-none select-none px-[4%]">
-          <h1 className="text-[24vw] font-extrabold text-white leading-[0.75] m-0 tracking-[-0.04em] whitespace-nowrap translate-y-[12%] opacity-100">
+        <div className="w-full flex justify-center mb-[-60px] pointer-events-none select-none">
+          <h1 className="text-[24vw] font-extrabold text-white leading-[0.75] m-0 tracking-[-0.04em] whitespace-nowrap translate-y-[12%] opacity-100 px-[100px]">
             Kitobchi
           </h1>
         </div>

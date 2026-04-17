@@ -3,7 +3,6 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Space_Grotesk } from "next/font/google"; // 1. Google Fonts'dan shriftni import qilish
 import Scene from "../src/components/Scene";
 import Hero from "../src/components/sections/Hero";
 import Stores from "../src/components/sections/Stores";
@@ -11,8 +10,7 @@ import Gift from "../src/components/sections/Gift";
 import Features from "@/src/components/sections/Features";
 import CTA from "@/src/components/sections/CTA";
 
-// 2. Shriftni sozlash
-const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
+
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -50,7 +48,7 @@ export default function KitobchiApp() {
     <div
       id="main-wrapper"
       // 3. Shriftni asosiy wrapperga qo'shish
-      className={`text-[#4a4a4a] selection:bg-[#bfa2ff] selection:text-white ${spaceGrotesk.className}`}
+      className={`text-[#4a4a4a] selection:bg-[#bfa2ff] selection:text-white `}
       // 4. Grid qatorlarini va gradient fonni birlashtirish
       style={{
         backgroundImage: `

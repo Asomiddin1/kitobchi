@@ -14,14 +14,13 @@ if (typeof window !== "undefined") {
 function IPhoneGLB() {
   const modelRef = useRef<THREE.Group>(null);
   
-  // Model nomi preload bilan BIR XIL bo'lishi shart!
-  const { scene } = useGLTF("/iphone.glb");
+  const { scene } = useGLTF("/phone-done3.glb");
 
   useEffect(() => {
     if (!modelRef.current) return;
     const model = modelRef.current;
 
-    model.rotation.set(0, Math.PI, 0);
+    model.rotation.set(0, 5.1, 0);
 
     let mm = gsap.matchMedia();
 
@@ -35,12 +34,7 @@ function IPhoneGLB() {
         scrollTrigger: {
           trigger: "#main-wrapper",
           start: "top top",
-          
-          // O'ZGARISH SHU YERDA: 
-          // Animatsiya boshlangandan keyin 2500px pastga tushganda tugaydi. 
-          // Agar tezroq tugashini xohlasangiz raqamni kamaytiring (masalan: "+=1500")
           end: "+=2000", 
-          
           scrub: 1.2,
         },
       });
@@ -53,7 +47,8 @@ function IPhoneGLB() {
           .to(model.position, { x: -2.5, y: -0.5, z: 0 }, 0.1)
           .to(model.rotation, { y: Math.PI * 2.5, x: -0.2 }, 0.4)
           .to(model.position, { x: 2.5, y: 0.5, z: 0 }, 0.4)
-          .to(model.rotation, { y: Math.PI * 3, x: 0, z: 0.5 }, 0.7)
+          // O'ZGARTIRILDI: x va z nolga tenglashtirildi (tekis turishi uchun), y esa aylanishni tugatish uchun o'zgartirildi
+          .to(model.rotation, { y: Math.PI * 4, x: 0, z: 0 }, 0.7) 
           .to(model.position, { x: 0, y: 0, z: 1.5 }, 0.7);
       } else {
         model.position.set(0, -1.5, 0);
@@ -63,7 +58,8 @@ function IPhoneGLB() {
           .to(model.position, { x: 0, y: -0.5, z: -0.5 }, 0.1)
           .to(model.rotation, { y: Math.PI * 2.5, x: -0.1 }, 0.4)
           .to(model.position, { x: 0, y: 0.5, z: 0 }, 0.4)
-          .to(model.rotation, { y: Math.PI * 3, x: 0, z: 0 }, 0.7)
+          // O'ZGARTIRILDI: x va z nolga tenglashtirildi
+          .to(model.rotation, { y: Math.PI * 4, x: 0, z: 0 }, 0.7)
           .to(model.position, { x: 0, y: 0, z: 1 }, 0.7);
       }
     });
@@ -80,8 +76,7 @@ function IPhoneGLB() {
   );
 }
 
-// Preload qilinayotgan fayl tepadagi useGLTF bilan bir xil bo'lishi kerak
-useGLTF.preload("/iphone.glb");
+useGLTF.preload("/phone-done3.glb");
 
 function CanvasLoader() {
   const { progress } = useProgress(); 
