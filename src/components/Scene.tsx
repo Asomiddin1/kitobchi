@@ -20,7 +20,7 @@ function IPhoneGLB() {
     if (!modelRef.current) return;
     const model = modelRef.current;
 
-    model.rotation.set(0, 5.1, 0);
+    model.rotation.set(0.2, 5.1, 0);
 
     let mm = gsap.matchMedia();
 
@@ -41,24 +41,24 @@ function IPhoneGLB() {
 
       if (isDesktop) {
         model.position.set(2.5, 0, 0);
-        model.scale.set(30, 30, 30);
+        // O'ZGARTIRISH SHU YERDA: 30 dan 24 ga tushirildi (Kompyuter uchun)
+        model.scale.set(24, 24, 24);
 
         tl.to(model.rotation, { y: Math.PI * 1.5, x: 0.1 }, 0.1)
           .to(model.position, { x: -2.5, y: -0.5, z: 0 }, 0.1)
           .to(model.rotation, { y: Math.PI * 2.5, x: -0.2 }, 0.4)
           .to(model.position, { x: 2.5, y: 0.5, z: 0 }, 0.4)
-          // O'ZGARTIRILDI: x va z nolga tenglashtirildi (tekis turishi uchun), y esa aylanishni tugatish uchun o'zgartirildi
           .to(model.rotation, { y: Math.PI * 4, x: 0, z: 0 }, 0.7) 
           .to(model.position, { x: 0, y: 0, z: 1.5 }, 0.7);
       } else {
         model.position.set(0, -1.5, 0);
-        model.scale.set(20, 20, 20);
+        // O'ZGARTIRISH SHU YERDA: 20 dan 15 ga tushirildi (Telefon uchun)
+        model.scale.set(15, 15, 15);
 
         tl.to(model.rotation, { y: Math.PI * 1.5, x: 0.05 }, 0.1)
           .to(model.position, { x: 0, y: -0.5, z: -0.5 }, 0.1)
           .to(model.rotation, { y: Math.PI * 2.5, x: -0.1 }, 0.4)
           .to(model.position, { x: 0, y: 0.5, z: 0 }, 0.4)
-          // O'ZGARTIRILDI: x va z nolga tenglashtirildi
           .to(model.rotation, { y: Math.PI * 4, x: 0, z: 0 }, 0.7)
           .to(model.position, { x: 0, y: 0, z: 1 }, 0.7);
       }

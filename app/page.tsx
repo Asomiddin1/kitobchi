@@ -9,6 +9,7 @@ import Stores from "../src/components/sections/Stores";
 import Gift from "../src/components/sections/Gift";
 import Features from "@/src/components/sections/Features";
 import CTA from "@/src/components/sections/CTA";
+import Bussines from "@/src/components/sections/Bussines";
 
 
 
@@ -65,7 +66,7 @@ export default function KitobchiApp() {
         <Hero />
         <Stores />
         <Gift />
-        <Gift />
+        <Bussines />
         <Features />
         <CTA />
       </div>
